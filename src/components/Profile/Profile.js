@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 
 import s from './Profile.module.scss';
 
-const Profile = ({ avatar, name, tag, location, stats: { followers, views, likes } }) => (
-  <div className={s.profile}>
+const Profile = ({ avatar, name, tag, location, stats }) => {
+  const { followers, views, likes } = stats
+  return (
+    <div className={s.profile}>
     <div className={s.description}>
       <img className={s.avatar} src={avatar} alt={name} width="100" />
       <p className={s.name}>{name}</p>
@@ -26,7 +28,8 @@ const Profile = ({ avatar, name, tag, location, stats: { followers, views, likes
       </li>
     </ul>
   </div>
-);
+  )
+  };
 
 Profile.defaultProps = {
   avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg"
